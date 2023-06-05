@@ -1,0 +1,20 @@
+.btn {
+  width: fit-content;
+  padding: 0.6875rem 1.25rem;
+  color: white;
+  font-weight: 600;
+  font-size: 1.125rem;
+  cursor: pointer;
+}
+
+.btn__primary {
+  border: 0.0625rem solid var(--btn-primary);
+  border-radius: 3.75rem;
+  background-color: var(--btn-primary);
+
+  &:hover,
+  &:focus {
+    border: 0.0625rem solid var(--btn-secondary);
+    background-color: var(--btn-secondary);
+  }
+}

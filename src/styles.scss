@@ -1,4 +1,5 @@
 @import '../src/styles/variables';
+@import '../src/styles//buttons';
 
 * {
   box-sizing: border-box;
@@ -7,17 +8,6 @@
 }
 
 html {
-  font-size: 62.5%;
-  font-family: var(--lato);
-}
-
-main {
-  /* Modelo de caja */
-  width: 100%;
-  min-width: 320px;
-  height: 100vh;
-  /* Tipografía */
-  text-align: center;
-  /* Visuales */
-  background-color: var(--background-primary);
+  font-size: var(--font-size);
+  font-family: var(--font-family);
 }
