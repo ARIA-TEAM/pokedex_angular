@@ -3,8 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'welcome',
-    loadChildren: () => import('./features/welcome/welcome.module').then((module) => module.WelcomeModule)
+    path: '',
+    loadChildren: () => import('./features/home/home.module').then((module) => module.HomeModule)
+  },
+  {
+    path: 'poke-list',
+    loadChildren: () => import('./features/list/list.module').then((module) => module.ListModule)
   },
   {
     path: '',
