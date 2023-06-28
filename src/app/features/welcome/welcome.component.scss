@@ -1,0 +1,25 @@
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 0 1.875rem;
+
+  img {
+    margin-bottom: 4rem;
+  }
+
+  h3 {
+    margin-bottom: 1.875rem;
+    font-size: 1.625rem;
+    font-weight: 700;
+  }
+
+  p {
+    margin-bottom: 3rem;
+    font-size: 1.125rem;
+    font-weight: 500;
+    line-height: 1.6875rem;
+  }
+}
