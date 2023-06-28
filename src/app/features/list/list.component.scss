@@ -1,7 +1,7 @@
-$default-padding: 0.625rem ;
+$default-padding: 0.625rem;
 $default-radius: 0.3125rem;
 
-section {
+.list__container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -15,7 +15,6 @@ section {
     &__group {
       display: flex;
       flex-direction: row;
-      box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.04);
     }
 
     &--preppend {
@@ -51,19 +50,42 @@ section {
       border-radius: $default-radius;
       background-color: var(--pkdx-surface-bright-color);
     }
+  }
+}
 
-    &--favorite {
-      padding: 0.5rem;
-      border: none;
-      border-radius: 50%;
-      background-color: var(--pkdx-surface-dim-color);
-    }
+.filter {
+  &__container {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-around;
+    padding: 1rem;
+    width: 100%;
+    background-color: var(--pkdx-surface-bright-color);
+    border: 0.063rem solid var(--pkdx-surface-bright-color);
+  }
+
+  &__inner {
+    display: inherit;
+    justify-content: center;
+    gap: 1em;
+    margin: auto;
+    width: 40.625rem;
   }
 }
 
 @media (min-width: 768px) {
-  section {
+  .list__container {
     margin: auto;
     width: 40.625rem;
+  }
+
+  .filter {
+    &__inner {
+      .btn {
+        width: 18.125rem;
+      }
+    }
   }
 }

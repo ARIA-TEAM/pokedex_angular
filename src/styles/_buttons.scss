@@ -1,20 +1,49 @@
 .btn {
-  width: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  width: 9.375rem;
   padding: 0.6875rem 1.25rem;
-  color: white;
   font-weight: 600;
   font-size: 1.125rem;
   cursor: pointer;
+
+  &--primary {
+    color: var(--pkdx-on-primary-color);
+    border: 0.0625rem solid var(---pkdx-primary-color);
+    border-radius: 3.75rem;
+    background-color: var(--pkdx-primary-color);
+
+    &:hover,
+    &:focus {
+      color: var(--pkdx-on-hover-color);
+      border: 0.0625rem solid var(--pkdx-hover-color);
+      background-color: var(--pkdx-hover-color);
+    }
+  }
+
+  &:disabled {
+    color: var(--pkdx-on-tertiary-color);
+    border: 0.0625rem solid var(--pkdx-tertiary-color);
+    background-color: var(--pkdx-tertiary-color);
+  }
 }
 
-.btn__primary {
-  border: 0.0625rem solid var(---pkdx-primary-color);
-  border-radius: 3.75rem;
-  background-color: var(--pkdx-primary-color);
+.btn-rounded {
+  padding: 0.5rem;
+  width: 2.75rem;;
+  height: 2.75rem;
+  border: 0.0625rem solid var(--pkdx-surface-color);
+  border-radius: 50%;
+  background-color: var(--pkdx-surface-color);
+  background-image: url('../assets/icons/fav-disabled.svg');
+  background-size: 1.625rem 1.625rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
 
-  &:hover,
-  &:focus {
-    border: 0.0625rem solid var(--pkdx-on-hover-color);
-    background-color: var(--pkdx-on-hover-color);
+  &--favourite {
+    background-image: url('../assets/icons/fav-enabled.svg');
   }
 }

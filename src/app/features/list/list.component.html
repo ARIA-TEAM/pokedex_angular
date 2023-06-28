@@ -1,6 +1,6 @@
-<section>
+<section class="list__container">
   <form class="form">
-    <div class="form__group">
+    <div class="form__group shadow">
       <div class="form--preppend">
         <img src="../../../assets/icons/search.svg" />
       </div>
@@ -8,21 +8,19 @@
     </div>
   </form>
   <ul class="list">
-    <li class="list__item">
-      <p class="list--title">Bulbasaur</p>
-      <button class="list--favorite"><img src="../../../assets/icons/star.svg" /></button>
-    </li>
-    <li class="list__item">
-      <p class="list--title">Ivysaur</p>
-      <button class="list--favorite"><img src="../../../assets/icons/star.svg" /></button>
-    </li>
-    <li class="list__item">
-      <p class="list--title">Venasaur</p>
-      <button class="list--favorite"><img src="../../../assets/icons/star.svg" /></button>
+    <li *ngFor="let pokemon of pokemonList" class="list__item">
+      <p class="list--title">{{ pokemon.name }}</p>
+      <button
+        class="btn-rounded"
+        [ngClass]="{ 'btn-rounded--favourite': pokemon.favourite }"
+        (click)="onAddToFavourites(pokemon.id)">
+      </button>
     </li>
   </ul>
 </section>
-<section>
-  <button><img src="../../../assets/icons/all.svg" />All</button>
-  <button><img src="../../../assets/icons/star.svg" />Favorites</button>
+<section class="filter__container shadow">
+  <div class="filter__inner">
+    <button class="btn btn--primary" [disabled]="showFavourites"><img src="../../../assets/icons/all.svg" />All</button>
+    <button class="btn btn--primary" [disabled]="!showFavourites"><img src="../../../assets/icons/star.svg" />Favourites</button>
+  </div>
 </section>
