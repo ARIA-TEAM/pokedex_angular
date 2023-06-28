@@ -23,7 +23,7 @@
     }
   }
 
-  &:disabled {
+  &--disabled {
     color: var(--pkdx-on-tertiary-color);
     border: 0.0625rem solid var(--pkdx-tertiary-color);
     background-color: var(--pkdx-tertiary-color);

@@ -4,23 +4,23 @@
       <div class="form--preppend">
         <img src="../../../assets/icons/search.svg" />
       </div>
-      <input type="text" name="search" placeholder="Search" />
+      <input type="text" name="search" placeholder="Search" [formControl]="searchControl"/>
     </div>
   </form>
   <ul class="list">
-    <li *ngFor="let pokemon of pokemonList" class="list__item">
+    <li *ngFor="let pokemon of filteredPokemonList" class="list__item">
       <p class="list--title">{{ pokemon.name }}</p>
       <button
         class="btn-rounded"
         [ngClass]="{ 'btn-rounded--favourite': pokemon.favourite }"
-        (click)="onAddToFavourites(pokemon.id)">
+        (click)="onUpdateFavouritesList(pokemon.id)">
       </button>
     </li>
   </ul>
 </section>
 <section class="filter__container shadow">
   <div class="filter__inner">
-    <button class="btn btn--primary" [disabled]="showFavourites"><img src="../../../assets/icons/all.svg" />All</button>
-    <button class="btn btn--primary" [disabled]="!showFavourites"><img src="../../../assets/icons/star.svg" />Favourites</button>
+    <button class="btn btn--primary" [ngClass]="{'btn--disabled': showFavourites}"(click)="onShowAll()"><img src="../../../assets/icons/all.svg" />All</button>
+    <button class="btn btn--primary" [ngClass]="{'btn--disabled': !showFavourites}" (click)="onShowFavourites()"><img src="../../../assets/icons/star.svg" />Favourites</button>
   </div>
 </section>
