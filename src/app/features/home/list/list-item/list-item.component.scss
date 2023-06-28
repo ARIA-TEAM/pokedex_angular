@@ -1,7 +1,8 @@
 $default-padding: 0.625rem;
 $default-radius: 0.3125rem;
 
-.list__item {
+.list {
+  &__item {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -9,5 +10,9 @@ $default-radius: 0.3125rem;
   font-size: 1.25rem;
   text-transform: capitalize;
   border-radius: $default-radius;
-  background-color: var(--pkdx-surface-bright-color);
+  background-color: var(--pkdx-surface-bright-color);}
+
+  &--title {
+    cursor: pointer;
+  }
 }

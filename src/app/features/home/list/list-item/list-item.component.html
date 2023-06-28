@@ -1,8 +1,9 @@
 <li class="list__item">
-  <p class="list--title">{{ pokemon?.name }}</p>
+  <div class="list--title" (click)="onOpenModal()">
+    <p>{{ pokemon?.name }}</p>
+  </div>
   <button
-    class="btn-rounded"
+    class="btn-rounded btn-rounded--star"
     [ngClass]="{ 'btn-rounded--favourite': pokemon?.favourite }"
-    (click)="onUpdateFavouritesList(pokemon?.id)">
-  </button>
+    (click)="onUpdateFavouritesList(pokemon?.id)"></button>
 </li>

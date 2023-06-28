@@ -1,0 +1,24 @@
+.detail-modal {
+  &__header {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0.94rem;
+    width: 20.4375rem;
+    height: 13.75rem;
+    border-top-left-radius: 0.3125rem;
+    border-top-right-radius: 0.3125rem;
+    background-image: url('/src/assets/images/detail-bg.png');
+    background-size: 36.875rem 13.75rem;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
+
+@media (min-width: 768px) {
+  .detail-modal {
+    &__header {
+      width: 36.875rem;
+      height: 13.75rem;
+    }
+  }
+}

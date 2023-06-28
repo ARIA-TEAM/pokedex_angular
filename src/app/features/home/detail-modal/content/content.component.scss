@@ -1,0 +1,14 @@
+.detail-modal {
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+    padding: 2rem;
+
+    p {
+      span {
+        font-weight: 600;
+      }
+    }
+  }
+}

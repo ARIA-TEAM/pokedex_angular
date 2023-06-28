@@ -32,18 +32,31 @@
 
 .btn-rounded {
   padding: 0.5rem;
-  width: 2.75rem;;
-  height: 2.75rem;
   border: 0.0625rem solid var(--pkdx-surface-color);
   border-radius: 50%;
-  background-color: var(--pkdx-surface-color);
-  background-image: url('../assets/icons/fav-disabled.svg');
-  background-size: 1.625rem 1.625rem;
-  background-repeat: no-repeat;
-  background-position: center;
   cursor: pointer;
 
+  &--star {
+    width: 2.75rem;
+    height: 2.75rem;
+    background-color: var(--pkdx-surface-color);
+    background-image: url('/src/assets/icons/fav-disabled.svg');
+    background-size: 1.625rem 1.625rem;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
   &--favourite {
-    background-image: url('../assets/icons/fav-enabled.svg');
+    background-image: url('/src/assets/icons/fav-enabled.svg');
+  }
+
+  &--close {
+    width: 1.625rem;
+    height: 1.625rem;
+    background-color: transparent;
+    background-image: url('/src/assets/icons/x-mark.svg');
+    background-size: 1.625rem 1.625rem;
+    background-repeat: no-repeat;
+    background-position: center;
   }
 }

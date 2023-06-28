@@ -13,3 +13,7 @@ html {
   font-family: var(--pkdx-font-family);
   color: var(--pkdx-on-surface-color);
 }
+
+app-modal {
+  display: none;
+}
