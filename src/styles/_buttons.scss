@@ -8,13 +8,13 @@
 }
 
 .btn__primary {
-  border: 0.0625rem solid var(--btn-primary);
+  border: 0.0625rem solid var(---pkdx-primary-color);
   border-radius: 3.75rem;
-  background-color: var(--btn-primary);
+  background-color: var(--pkdx-primary-color);
 
   &:hover,
   &:focus {
-    border: 0.0625rem solid var(--btn-secondary);
-    background-color: var(--btn-secondary);
+    border: 0.0625rem solid var(--pkdx-on-hover-color);
+    background-color: var(--pkdx-on-hover-color);
   }
 }

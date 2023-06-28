@@ -1,13 +1,33 @@
 :root {
-  --btn-primary: #F22539;
-  --btn-secondary: #C00E20;
-  --fav-primary: #ECA539;
-  --fav-background: #F5F5F5;
-  --btn-fav-disabled: #BFBFBF;
-  --font-primary: #353535;
-  --font-secondary: #5E5E5E;
-  --background-primary: #E8E8E8;
-  --background-secondary: #F9F9F9;
-  --font-size: 16px;
-  --font-family: "Lato", sans-serif;
+  --pkdx-font-size: 16px;
+  --pkdx-font-family: "Lato", sans-serif;
+
+  --pkdx-imperial-red-hex-color: #F22539;
+  --pkdx-cadmium-purple-hex-color: #C00E20;
+  --pkdx-meat-brown-hex-color: #ECA539;
+
+  --pkdx-jet-hex-color: #353535;
+  --pkdx-davys-grey-hex-color: #5E5E5E;
+  --pkdx-argent-hex-color: #BFBFBF;
+
+  --pkdx-platinum-hex-color: #E8E8E8;
+  --pkdx-cultured-hex-color: #F5F5F5;
+  --pkdx-ghost-white-hex-color: #F9F9F9;
+
+  --pkdx-primary-color: var(--pkdx-imperial-red-hex-color);
+  --pkdx-on-primary-color: var(--pkdx-ghost-white-hex-color);
+
+  --pkdx-secondary-color: var(--pkdx-meat-brown-hex-color);
+  --pkdx-on-secondary-color: var(--pkdx-jet-hex-color);
+
+  --pkdx-tertiary-color: var(--pkdx-davys-grey-hex-color);
+  --pkdx-tertiary-color: var(--pkdx-jet-hex-color);
+
+  --pkdx-hover-color: var(--pkdx-cadmium-purple-hex-color);
+  --pkdx-on-hover-color: var(--pkdx-ghost-white-hex-color);
+
+  --pkdx-surface-dim-color: var(--pkdx-platinum-hex-color);
+  --pkdx-surface-color: var(--pkdx-cultured-hex-color);
+  --pkdx-on-surface-color: var(--pkdx-jet-hex-color);
+  --pkdx-surface-bright-color: var(--pkdx-ghost-white-hex-color);
 }
