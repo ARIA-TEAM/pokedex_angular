@@ -1,6 +1,18 @@
-<section>
-  <img src="../../../assets/images/pikachu.svg" alt="pikachu">
-  <h3>Welcome to Pokédex</h3>
-  <p>The digital encyclopedia created by Professor Oak is an invaluable tool to Trainers in the Pokémon world.</p>
-  <button class="btn btn--primary" routerLink="/poke-list">Get Started</button>
+<section class="home__container">
+  <app-search
+    class="search"
+    [pokemonList]="pokemonList"
+    [filteredPokemonList]="filteredPokemonList"
+    [searchControl]="searchControl"></app-search>
+  <app-list
+    class="list"
+    [pokemonList]="pokemonList"
+    [favouritePokemonList]="favouritePokemonList"
+    [filteredPokemonList]="filteredPokemonList"
+    (onUpdateFavouritesListEmitter)="onUpdateFavouritesList($event)"></app-list>
+  <app-filters
+    class="filter"
+    [showFavourites]="showFavourites"
+    (onShowAllEmitter)="onShowAll()"
+    (onShowFavouritesEmitter)="onShowFavourites()"></app-filters>
 </section>

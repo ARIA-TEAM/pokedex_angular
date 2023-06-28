@@ -1,0 +1,6 @@
+<div class="filter__container shadow">
+  <div class="filter__inner">
+    <button class="btn btn--primary" [ngClass]="{'btn--disabled': showFavourites}"(click)="onShowAll()"><img src="../../../assets/icons/all.svg" />All</button>
+    <button class="btn btn--primary" [ngClass]="{'btn--disabled': !showFavourites}" (click)="onShowFavourites()"><img src="../../../assets/icons/star.svg" />Favourites</button>
+  </div>
+</div>

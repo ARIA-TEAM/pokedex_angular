@@ -1,0 +1,8 @@
+<li class="list__item">
+  <p class="list--title">{{ pokemon?.name }}</p>
+  <button
+    class="btn-rounded"
+    [ngClass]="{ 'btn-rounded--favourite': pokemon?.favourite }"
+    (click)="onUpdateFavouritesList(pokemon?.id)">
+  </button>
+</li>

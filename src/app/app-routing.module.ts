@@ -8,7 +8,7 @@ const routes: Routes = [
   },
   {
     path: 'poke-list',
-    loadChildren: () => import('./features/list/list.module').then((module) => module.ListModule)
+    loadChildren: () => import('./features/home/home.module').then((module) => module.HomeModule)
   },
   {
     path: '',

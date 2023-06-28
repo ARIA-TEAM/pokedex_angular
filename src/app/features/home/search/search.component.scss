@@ -1,0 +1,29 @@
+$default-padding: 0.625rem;
+$default-radius: 0.3125rem;
+
+.form {
+  width: 100%;
+  margin-bottom: 2rem;
+
+  &__group {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &--preppend {
+    padding: $default-padding 0 $default-padding $default-padding;
+    background-color: var(--pkdx-surface-bright-color);
+    border-top-left-radius: $default-radius;
+    border-bottom-left-radius: $default-radius;
+  }
+
+  input {
+    padding: $default-padding;
+    width: -webkit-fill-available;
+    font-size: 1rem;
+    background-color: var(--pkdx-surface-bright-color);
+    border: none;
+    border-top-right-radius: $default-radius;
+    border-bottom-right-radius: $default-radius;
+  }
+}

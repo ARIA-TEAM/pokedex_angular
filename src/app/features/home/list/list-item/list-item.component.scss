@@ -1,0 +1,13 @@
+$default-padding: 0.625rem;
+$default-radius: 0.3125rem;
+
+.list__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $default-padding;
+  font-size: 1.25rem;
+  text-transform: capitalize;
+  border-radius: $default-radius;
+  background-color: var(--pkdx-surface-bright-color);
+}

@@ -1,0 +1,16 @@
+$default-padding: 0.625rem;
+$default-radius: 0.3125rem;
+
+.list{
+  &__container{
+  display: flex;
+  flex-direction: column;
+  gap: $default-padding;
+  width: 100%;
+
+  app-list-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+  }
+}}

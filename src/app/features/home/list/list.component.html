@@ -1,0 +1,6 @@
+<ul class="list__container">
+  <app-list-item
+    *ngFor="let pokemon of filteredPokemonList"
+    [pokemon]="pokemon"
+    (onUpdateFavouritesListEmitter)="(onUpdateFavouritesList($event))"></app-list-item>
+</ul>
