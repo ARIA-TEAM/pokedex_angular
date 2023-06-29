@@ -1,15 +1,15 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing'
-import { WelcomeComponent } from '@welcome/welcome.component'
+import { ListComponent } from '@home/components/list/list.component'
 
-describe('WelcomeComponent', () => {
-  let component: WelcomeComponent
-  let fixture: ComponentFixture<WelcomeComponent>
+describe('ListComponent', () => {
+  let component: ListComponent
+  let fixture: ComponentFixture<ListComponent>
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [WelcomeComponent]
+      declarations: [ListComponent]
     })
-    fixture = TestBed.createComponent(WelcomeComponent)
+    fixture = TestBed.createComponent(ListComponent)
     component = fixture.componentInstance
     fixture.detectChanges()
   })

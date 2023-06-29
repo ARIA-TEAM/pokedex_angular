@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { ModalService } from 'src/app/shared/services/modal.service';
+import { Component } from '@angular/core'
+import { ModalService } from '@shared/services/modal.service'
 
 @Component({
   selector: 'app-detail-header',
@@ -7,7 +7,7 @@ import { ModalService } from 'src/app/shared/services/modal.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-  constructor(private modalService: ModalService) { }
+  constructor(private modalService: ModalService) {}
 
   public onClose(): void {
     this.modalService.close('detail')

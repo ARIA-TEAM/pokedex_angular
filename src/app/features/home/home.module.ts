@@ -1,21 +1,30 @@
 import { CommonModule } from '@angular/common'
 import { NgModule } from '@angular/core'
 import { ReactiveFormsModule } from '@angular/forms'
-import { SharedModule } from 'src/app/shared/shared.module'
-
-import { DetailModalComponent } from './detail-modal/detail-modal.component'
-import { FiltersComponent } from './filters/filters.component'
-import { HomeRoutingModule } from './home-routing.module'
-import { HomeComponent } from './home.component'
-import { ListItemComponent } from './list/list-item/list-item.component'
-import { ListComponent } from './list/list.component'
-import { SearchComponent } from './search/search.component';
-import { HeaderComponent } from './detail-modal/header/header.component';
-import { ContentComponent } from './detail-modal/content/content.component';
-import { FooterComponent } from './detail-modal/footer/footer.component'
+import { ContentComponent } from '@home/components/detail-modal/content/content.component'
+import { DetailModalComponent } from '@home/components/detail-modal/detail-modal.component'
+import { FooterComponent } from '@home/components/detail-modal/footer/footer.component'
+import { HeaderComponent } from '@home/components/detail-modal/header/header.component'
+import { FiltersComponent } from '@home/components/filters/filters.component'
+import { ListItemComponent } from '@home/components/list/list-item/list-item.component'
+import { ListComponent } from '@home/components/list/list.component'
+import { SearchComponent } from '@home/components/search/search.component'
+import { HomeRoutingModule } from '@home/home-routing.module'
+import { HomeComponent } from '@home/home.component'
+import { SharedModule } from 'src/shared/shared.module'
 
 @NgModule({
-  declarations: [HomeComponent, ListComponent, ListItemComponent, SearchComponent, FiltersComponent, DetailModalComponent, HeaderComponent, ContentComponent, FooterComponent],
-  imports: [CommonModule, HomeRoutingModule, SharedModule, ReactiveFormsModule],
+  declarations: [
+    HomeComponent,
+    ListComponent,
+    ListItemComponent,
+    SearchComponent,
+    FiltersComponent,
+    DetailModalComponent,
+    HeaderComponent,
+    ContentComponent,
+    FooterComponent
+  ],
+  imports: [CommonModule, HomeRoutingModule, SharedModule, ReactiveFormsModule]
 })
 export class HomeModule {}

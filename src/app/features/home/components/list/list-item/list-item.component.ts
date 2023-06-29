@@ -1,6 +1,6 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { PokemonModel } from 'src/app/core/models/pokemon.model';
-import { ModalService } from '../../../../shared/services/modal.service';
+import { Component, EventEmitter, Input, Output } from '@angular/core'
+import { PokemonModel } from '@core/models/pokemon.model'
+import { ModalService } from '@shared/services/modal.service'
 
 @Component({
   selector: 'app-list-item',
@@ -12,7 +12,7 @@ export class ListItemComponent {
 
   @Output() onUpdateFavouritesListEmitter = new EventEmitter<PokemonModel['id']>()
 
-  constructor(protected modalService: ModalService) { }
+  constructor(protected modalService: ModalService) {}
 
   public onOpenModal(): void {
     console.log('open modal')

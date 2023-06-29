@@ -1,9 +1,8 @@
 import { CommonModule } from '@angular/common'
 import { NgModule } from '@angular/core'
-import { SharedModule } from 'src/app/shared/shared.module'
-
-import { WelcomeRoutingModule } from './welcome-routing.module'
-import { WelcomeComponent } from './welcome.component'
+import { SharedModule } from '@shared/shared.module'
+import { WelcomeRoutingModule } from '@welcome/welcome-routing.module'
+import { WelcomeComponent } from '@welcome/welcome.component'
 
 @NgModule({
   declarations: [WelcomeComponent],

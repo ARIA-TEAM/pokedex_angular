@@ -1,7 +1,7 @@
 import { Component } from '@angular/core'
 import { FormControl } from '@angular/forms'
+import { PokemonModel } from '@core/models/pokemon.model'
 import { Subject, takeUntil } from 'rxjs'
-import { PokemonModel } from 'src/app/core/models/pokemon.model'
 
 @Component({
   selector: 'app-home',
