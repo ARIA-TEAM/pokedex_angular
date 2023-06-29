@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core'
 import { FormControl } from '@angular/forms'
-import { PokemonModel } from '@core/models/pokemon.model'
+import { PokemonModel } from '@app/features/home/models/pokemon.model'
 
 @Component({
   selector: 'app-search',

@@ -1,4 +1,5 @@
 import { CommonModule } from '@angular/common'
+import { HttpClientModule } from '@angular/common/http'
 import { NgModule } from '@angular/core'
 import { ReactiveFormsModule } from '@angular/forms'
 import { ContentComponent } from '@home/components/detail-modal/content/content.component'
@@ -13,6 +14,8 @@ import { HomeRoutingModule } from '@home/home-routing.module'
 import { HomeComponent } from '@home/home.component'
 import { SharedModule } from 'src/shared/shared.module'
 
+import { PokemonService } from './services/pokemon.service'
+
 @NgModule({
   declarations: [
     HomeComponent,
@@ -25,6 +28,7 @@ import { SharedModule } from 'src/shared/shared.module'
     ContentComponent,
     FooterComponent
   ],
-  imports: [CommonModule, HomeRoutingModule, SharedModule, ReactiveFormsModule]
+  imports: [CommonModule, HomeRoutingModule, SharedModule, ReactiveFormsModule, HttpClientModule],
+  providers: [PokemonService]
 })
 export class HomeModule {}

@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core'
-import { PokemonModel } from '@core/models/pokemon.model'
+import { PokemonModel } from '@app/features/home/models/pokemon.model'
 import { ModalService } from '@shared/services/modal.service'
 
 @Component({
@@ -10,7 +10,7 @@ import { ModalService } from '@shared/services/modal.service'
 export class ListItemComponent {
   @Input() pokemon: PokemonModel | null = null
 
-  @Output() onUpdateFavouritesListEmitter = new EventEmitter<PokemonModel['id']>()
+  @Output() onUpdateFavouritesListEmitter = new EventEmitter<PokemonModel['name']>()
 
   constructor(protected modalService: ModalService) {}
 
@@ -19,9 +19,9 @@ export class ListItemComponent {
     this.modalService.open('detail')
   }
 
-  public onUpdateFavouritesList(pokemonId: PokemonModel['id'] | undefined): void {
-    if (!pokemonId) return
+  public onUpdateFavouritesList(pokemonName: PokemonModel['name'] | undefined): void {
+    if (!pokemonName) return
 
-    this.onUpdateFavouritesListEmitter.emit(pokemonId)
+    this.onUpdateFavouritesListEmitter.emit(pokemonName)
   }
 }

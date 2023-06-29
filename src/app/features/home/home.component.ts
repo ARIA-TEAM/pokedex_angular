@@ -1,6 +1,7 @@
 import { Component } from '@angular/core'
 import { FormControl } from '@angular/forms'
-import { PokemonModel } from '@core/models/pokemon.model'
+import { PokemonModel } from '@app/features/home/models/pokemon.model'
+import { PokemonService } from '@home/services/pokemon.service'
 import { Subject, takeUntil } from 'rxjs'
 
 @Component({
@@ -11,36 +12,28 @@ import { Subject, takeUntil } from 'rxjs'
 export class HomeComponent {
   private _destroyed$ = new Subject()
 
-  public pokemonList: PokemonModel[] = [
-    {
-      id: 35,
-      name: 'clefairy',
-      favourite: false
-    },
-    {
-      id: 36,
-      name: 'bulbasaur',
-      favourite: false
-    },
-    {
-      id: 37,
-      name: 'ivysaur',
-      favourite: false
-    },
-    {
-      id: 38,
-      name: 'venasaur',
-      favourite: false
-    }
-  ]
-  public filteredPokemonList: PokemonModel[] = [...this.pokemonList]
+  public pokemonList: PokemonModel[] = []
+  public filteredPokemonList: PokemonModel[] = []
   public favouritePokemonList: PokemonModel[] = []
   public showFavourites = false
 
   public searchControl = new FormControl('')
 
+  constructor(private pokemonService: PokemonService) {}
+
   public ngOnInit(): void {
+    this._subscribeToGetAllPokemons()
     this._subscribeToSearchChanges()
+  }
+
+  private _subscribeToGetAllPokemons(): void {
+    this.pokemonService
+      .getAll()
+      .pipe(takeUntil(this._destroyed$))
+      .subscribe((pokemonList: PokemonModel[]) => {
+        this.pokemonList = pokemonList
+        this.filteredPokemonList = [...this.pokemonList]
+      })
   }
 
   private _subscribeToSearchChanges(): void {
@@ -53,10 +46,10 @@ export class HomeComponent {
     })
   }
 
-  public onUpdateFavouritesList(pokemonId: number): void {
+  public onUpdateFavouritesList(pokemonName: string): void {
     this.pokemonList = this.pokemonList.map((pokemon: PokemonModel) => {
-      if (pokemon.id === pokemonId) {
-        const favouritePokemonIndex = this._findFavouritePokemonIndex(pokemon.id)
+      if (pokemon.name === pokemonName) {
+        const favouritePokemonIndex = this._findFavouritePokemonIndex(pokemon.name)
 
         favouritePokemonIndex === -1 ? this.favouritePokemonList.push(pokemon) : this.favouritePokemonList.splice(favouritePokemonIndex, 1)
 
@@ -67,8 +60,8 @@ export class HomeComponent {
     })
   }
 
-  private _findFavouritePokemonIndex(pokemonId: number): number {
-    return this.favouritePokemonList.findIndex((pokemon: PokemonModel) => pokemon.id === pokemonId)
+  private _findFavouritePokemonIndex(pokemonName: string): number {
+    return this.favouritePokemonList.findIndex((pokemon: PokemonModel) => pokemon.name === pokemonName)
   }
 
   public onShowAll(): void {

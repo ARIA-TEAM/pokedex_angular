@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core'
-import { PokemonModel } from '@core/models/pokemon.model'
+import { PokemonModel } from '@app/features/home/models/pokemon.model'
 
 @Component({
   selector: 'app-list',
@@ -12,9 +12,9 @@ export class ListComponent {
   @Input() favouritePokemonList: PokemonModel[] = []
   @Input() showFavourites = false
 
-  @Output() onUpdateFavouritesListEmitter = new EventEmitter<PokemonModel['id']>()
+  @Output() onUpdateFavouritesListEmitter = new EventEmitter<PokemonModel['name']>()
 
-  public onUpdateFavouritesList(pokemonId: PokemonModel['id']): void {
-    this.onUpdateFavouritesListEmitter.emit(pokemonId)
+  public onUpdateFavouritesList(pokemonName: PokemonModel['name']): void {
+    this.onUpdateFavouritesListEmitter.emit(pokemonName)
   }
 }
