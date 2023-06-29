@@ -13,8 +13,13 @@ export class ListComponent {
   @Input() showFavourites = false
 
   @Output() onUpdateFavouritesListEmitter = new EventEmitter<PokemonModel['name']>()
+  @Output() onScrollEmitter = new EventEmitter()
 
   public onUpdateFavouritesList(pokemonName: PokemonModel['name']): void {
     this.onUpdateFavouritesListEmitter.emit(pokemonName)
+  }
+
+  public onScroll(): void {
+    this.onScrollEmitter.emit()
   }
 }

@@ -9,7 +9,8 @@
     [pokemonList]="pokemonList"
     [favouritePokemonList]="favouritePokemonList"
     [filteredPokemonList]="filteredPokemonList"
-    (onUpdateFavouritesListEmitter)="onUpdateFavouritesList($event)"></app-list>
+    (onUpdateFavouritesListEmitter)="onUpdateFavouritesList($event)"
+    (onScrollEmitter)="onScroll()"></app-list>
   <app-filters
     class="filter"
     [showFavourites]="showFavourites"

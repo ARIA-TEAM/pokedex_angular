@@ -31,7 +31,7 @@ export class HomeComponent {
       .getAll()
       .pipe(takeUntil(this._destroyed$))
       .subscribe((pokemonList: PokemonModel[]) => {
-        this.pokemonList = pokemonList
+        this.pokemonList = [...this.pokemonList, ...pokemonList]
         this.filteredPokemonList = [...this.pokemonList]
       })
   }
@@ -44,6 +44,10 @@ export class HomeComponent {
             pokemon.name.toLowerCase().includes(value.toLowerCase())
           ))
     })
+  }
+
+  public onScroll(): void {
+    this._subscribeToGetAllPokemons()
   }
 
   public onUpdateFavouritesList(pokemonName: string): void {

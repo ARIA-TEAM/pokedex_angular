@@ -10,11 +10,18 @@ import { HomeModule } from '@home/home.module'
   providedIn: HomeModule
 })
 export class PokemonService {
+  private _nextPage: string = ''
+  private _baseApiUrl: string = 'https://pokeapi.co/api/v2/pokemon'
+
   constructor(private httpClient: HttpClient) {}
 
   public getAll(): Observable<PokemonModel[]> {
-    return this.httpClient.get<PokemonListModel>('https://pokeapi.co/api/v2/pokemon').pipe(
-      map((response: PokemonListModel) => response.results),
+    return this.httpClient.get<PokemonListModel>(this._nextPage ? this._nextPage : this._baseApiUrl).pipe(
+      map((response: PokemonListModel) => {
+        this._nextPage = response.next
+
+        return response.results
+      }),
       catchError((error: any) => {
         throw new Error(error)
       })

@@ -1,6 +1,12 @@
-<ul class="list__container">
+<ul
+  class="list__container"
+  infiniteScroll
+  [infiniteScrollDistance]="2"
+  [infiniteScrollThrottle]="500"
+  (scrolled)="onScroll()"
+  [scrollWindow]="false">
   <app-list-item
     *ngFor="let pokemon of filteredPokemonList"
     [pokemon]="pokemon"
-    (onUpdateFavouritesListEmitter)="(onUpdateFavouritesList($event))"></app-list-item>
+    (onUpdateFavouritesListEmitter)="onUpdateFavouritesList($event)"></app-list-item>
 </ul>

@@ -12,9 +12,9 @@ import { ListComponent } from '@home/components/list/list.component'
 import { SearchComponent } from '@home/components/search/search.component'
 import { HomeRoutingModule } from '@home/home-routing.module'
 import { HomeComponent } from '@home/home.component'
-import { SharedModule } from 'src/shared/shared.module'
-
-import { PokemonService } from './services/pokemon.service'
+import { PokemonService } from '@home/services/pokemon.service'
+import { InfiniteScrollModule } from 'ngx-infinite-scroll'
+import { SharedModule } from '@shared/shared.module'
 
 @NgModule({
   declarations: [
@@ -28,7 +28,7 @@ import { PokemonService } from './services/pokemon.service'
     ContentComponent,
     FooterComponent
   ],
-  imports: [CommonModule, HomeRoutingModule, SharedModule, ReactiveFormsModule, HttpClientModule],
+  imports: [CommonModule, HomeRoutingModule, SharedModule, ReactiveFormsModule, HttpClientModule, InfiniteScrollModule],
   providers: [PokemonService]
 })
 export class HomeModule {}
