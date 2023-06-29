@@ -8,7 +8,5 @@ import { PokemonModel } from '@app/features/home/models/pokemon.model'
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent {
-  @Input() pokemonList: PokemonModel[] = []
-  @Input() filteredPokemonList: PokemonModel[] = []
   @Input() searchControl: FormControl = new FormControl('')
 }

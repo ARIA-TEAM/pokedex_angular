@@ -15,7 +15,6 @@ export class ListItemComponent {
   constructor(protected modalService: ModalService) {}
 
   public onOpenModal(): void {
-    console.log('open modal')
     this.modalService.open('detail')
   }
 
