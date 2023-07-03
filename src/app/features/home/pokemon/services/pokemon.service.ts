@@ -1,10 +1,10 @@
 import { HttpClient } from '@angular/common/http'
 import { Injectable } from '@angular/core'
-import { PokemonListModel, PokemonModel } from '@home/models/pokemon.model'
+import { PokemonListModel, PokemonModel } from '@app/features/home/pokemon/models/pokemon.model'
 import { Observable } from 'rxjs'
 import { catchError, map } from 'rxjs/operators'
 
-import { HomeModule } from '@home/home.module'
+import { HomeModule } from '@app/features/home/home.module'
 
 @Injectable({
   providedIn: HomeModule

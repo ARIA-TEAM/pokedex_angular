@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing'
-import { HeaderComponent } from '@home/components/detail-modal/header/header.component'
+import { HeaderComponent } from '@app/features/home/pokemon/components/detail-modal/header/header.component'
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent

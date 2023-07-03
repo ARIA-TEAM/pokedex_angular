@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing'
-import { FooterComponent } from '@home/components/detail-modal/footer/footer.component'
+import { FooterComponent } from '@app/features/home/pokemon/components/detail-modal/footer/footer.component'
 
 describe('FooterComponent', () => {
   let component: FooterComponent

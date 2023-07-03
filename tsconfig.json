@@ -8,6 +8,8 @@
       "@app/*": ["src/app/*"],
       "@home": ["src/app/features/home"],
       "@home/*": ["src/app/features/home/*"],
+      "@pokemon": ["src/app/features/home/pokemon"],
+      "@pokemon/*": ["src/app/features/home/pokemon/*"],
       "@welcome": ["src/app/features/welcome"],
       "@welcome/*": ["src/app/features/welcome/*"],
       "@assets": ["src/assets"],
