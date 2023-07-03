@@ -7,7 +7,7 @@ import { PokemonModel } from '@app/features/home/pokemon/models/pokemon.model'
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent {
-  @Input() pokemonList: PokemonModel[] = []
+  @Input() list: PokemonModel[] = []
   @Input() filteredPokemonList: PokemonModel[] = []
   @Input() favouritePokemonList: PokemonModel[] = []
   @Input() showFavourites = false

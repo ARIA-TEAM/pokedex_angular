@@ -27,4 +27,13 @@ export class PokemonService {
       })
     )
   }
+
+  public getDetail(pokemonName: PokemonModel['name']): Observable<PokemonModel> {
+    return this.httpClient.get<PokemonModel>(`${this._baseApiUrl}/${pokemonName}`).pipe(
+      map((response: PokemonModel) => response),
+      catchError((error: any) => {
+        throw new Error(error)
+      })
+    )
+  }
 }

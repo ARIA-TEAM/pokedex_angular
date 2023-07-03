@@ -14,8 +14,20 @@ export class PokemonEffects {
       ofType(PokemonActions.getAll),
       exhaustMap(() =>
         this.pokemonService.getAll().pipe(
-          map((pokemonList: PokemonModel[]) => PokemonActions.getAllSuccess({ pokemonList })),
+          map((list: PokemonModel[]) => PokemonActions.getAllSuccess({ list })),
           catchError(() => of(PokemonActions.getAll))
+        )
+      )
+    )
+  )
+
+  getDetail$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(PokemonActions.getDetail),
+      exhaustMap((action) =>
+        this.pokemonService.getDetail(action.pokemonName).pipe(
+          map((detail: PokemonModel) => PokemonActions.getDetailSuccess({ detail })),
+          catchError(() => of(PokemonActions.getDetail))
         )
       )
     )

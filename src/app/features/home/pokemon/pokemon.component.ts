@@ -2,8 +2,8 @@ import { Component, OnDestroy, OnInit } from '@angular/core'
 import { FormControl } from '@angular/forms'
 import { PokemonActions } from '@app/features/home/pokemon/store/pokemon.actions'
 import { Store } from '@ngrx/store'
-import { PokemonModel } from '@pokemon/models/pokemon.model'
-import { selectPokemonList } from '@pokemon/store/pokemon.reducer'
+import { PokemonModel } from '@app/features/home/pokemon/models/pokemon.model'
+import { PokemonState, selectList } from '@pokemon/store/pokemon.reducer'
 import { Subject, takeUntil } from 'rxjs'
 
 @Component({
@@ -14,38 +14,38 @@ import { Subject, takeUntil } from 'rxjs'
 export class PokemonComponent implements OnInit, OnDestroy {
   private _destroyed$ = new Subject()
 
-  public pokemonList: PokemonModel[] = []
+  public list: PokemonModel[] = []
   public filteredPokemonList: PokemonModel[] = []
   public favouritePokemonList: PokemonModel[] = []
   public showFavourites = false
 
   public searchControl = new FormControl('')
 
-  constructor(private pokemonStore: Store) {
-    this.pokemonStore.dispatch(PokemonActions.getAll())
+  constructor(private store: Store<PokemonState>) {
+    this.store.dispatch(PokemonActions.getAll())
   }
 
   public ngOnInit(): void {
-    this._subscribeToGetAllPokemon()
+    this._subscribeToGetAll()
     this._subscribeToSearchChanges()
   }
 
-  private _subscribeToGetAllPokemon(): void {
-    this.pokemonStore
-      .select(selectPokemonList)
+  private _subscribeToGetAll(): void {
+    this.store
+      .select(selectList)
       .pipe(takeUntil(this._destroyed$))
-      .subscribe((pokemonList: PokemonModel[]) => {
-        if (!pokemonList) return
+      .subscribe((list: PokemonModel[]) => {
+        if (!list) return
 
-        this.pokemonList = [...this.pokemonList, ...pokemonList]
-        this.filteredPokemonList = [...this.pokemonList]
+        this.list = [...this.list, ...list]
+        this.filteredPokemonList = [...this.list]
       })
   }
 
   private _subscribeToSearchChanges(): void {
     this.searchControl.valueChanges.pipe(takeUntil(this._destroyed$)).subscribe((value: string | null) => {
       !value
-        ? (this.filteredPokemonList = [...this.pokemonList])
+        ? (this.filteredPokemonList = [...this.list])
         : (this.filteredPokemonList = this.filteredPokemonList.filter((pokemon: PokemonModel) =>
             pokemon.name.toLowerCase().includes(value.toLowerCase())
           ))
@@ -53,11 +53,11 @@ export class PokemonComponent implements OnInit, OnDestroy {
   }
 
   public onScroll(): void {
-    this._subscribeToGetAllPokemon()
+    this._subscribeToGetAll()
   }
 
   public onUpdateFavouritesList(pokemonName: string): void {
-    this.pokemonList = this.pokemonList.map((pokemon: PokemonModel) => {
+    this.list = this.list.map((pokemon: PokemonModel) => {
       if (pokemon.name === pokemonName) {
         const favouritePokemonIndex = this._findFavouritePokemonIndex(pokemon.name)
 
@@ -76,7 +76,7 @@ export class PokemonComponent implements OnInit, OnDestroy {
 
   public onShowAll(): void {
     this.filteredPokemonList = []
-    this.filteredPokemonList = [...this.pokemonList]
+    this.filteredPokemonList = [...this.list]
     this.showFavourites = false
   }
 
