@@ -78,6 +78,8 @@ export class PokemonComponent implements OnInit, OnDestroy {
   }
 
   public onScroll(): void {
+    if (this.searchControl.value) return
+
     this.store.dispatch(PokemonActions.getPage())
   }
 
