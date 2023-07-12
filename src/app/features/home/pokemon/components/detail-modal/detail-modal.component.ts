@@ -1,9 +1,8 @@
-import { Component, OnDestroy, OnInit } from '@angular/core'
+import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core'
 import { Store } from '@ngrx/store'
+import { PokemonModel } from '@pokemon/models/pokemon.model'
+import { PokemonState, selectDetail } from '@pokemon/store/pokemon.reducer'
 import { Subject, takeUntil } from 'rxjs'
-
-import { PokemonModel } from '../../models/pokemon.model'
-import { PokemonState, selectDetail } from '../../store/pokemon.reducer'
 
 @Component({
   selector: 'app-detail-modal',
@@ -11,6 +10,8 @@ import { PokemonState, selectDetail } from '../../store/pokemon.reducer'
   styleUrls: ['./detail-modal.component.scss']
 })
 export class DetailModalComponent implements OnInit, OnDestroy {
+  @Output() onUpdateFavouritesListEmitter = new EventEmitter<PokemonModel>()
+
   private _destroyed$ = new Subject()
 
   public detail: PokemonModel | null = null
@@ -28,5 +29,16 @@ export class DetailModalComponent implements OnInit, OnDestroy {
       })
   }
 
-  public ngOnDestroy(): void {}
+  public getFrontDefault(): string | undefined {
+    return this.detail?.sprites.other['official-artwork'].front_default
+  }
+
+  public onUpdateFavouritesList(): void {
+    this.onUpdateFavouritesListEmitter.emit(this.detail ?? undefined)
+  }
+
+  public ngOnDestroy(): void {
+    this._destroyed$.next(null)
+    this._destroyed$.complete()
+  }
 }

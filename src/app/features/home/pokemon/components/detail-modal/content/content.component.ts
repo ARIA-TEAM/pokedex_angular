@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core'
-import { PokemonModel } from '@app/features/home/pokemon/models/pokemon.model'
+import { Component, Input } from '@angular/core';
+import { PokemonModel } from '@pokemon/models/pokemon.model';
 
 @Component({
   selector: 'app-detail-content',
@@ -12,6 +12,18 @@ export class ContentComponent {
   @Input() height: PokemonModel['height'] | undefined = 0
   @Input() types: PokemonModel['types'] | undefined = []
 
+  public getWeight(): string {
+    if (!this.weight) return ''
+
+    return `${+this.weight / 10} kg`
+  }
+
+  public getHeight(): string {
+    if (!this.height) return ''
+
+    return `${+this.height / 10} mts`
+  }
+
   public getTypes(): string {
     if (!this.types) return ''
 
@@ -19,6 +31,6 @@ export class ContentComponent {
 
     this.types.forEach((type) => types.push(type.type.name))
 
-    return types.join(' ')
+    return types.join(' & ')
   }
 }

@@ -1,9 +1,9 @@
 <section class="detail-modal">
-  <app-detail-header></app-detail-header>
+  <app-detail-header [frontDefault]="getFrontDefault()"></app-detail-header>
   <app-detail-content
     [name]="detail?.name"
     [height]="detail?.height"
     [weight]="detail?.weight"
     [types]="detail?.types"></app-detail-content>
-  <app-detail-footer></app-detail-footer>
+  <app-detail-footer [favourite]="detail?.favourite" (onUpdateFavouritesListEmitter)="onUpdateFavouritesList()"></app-detail-footer>
 </section>

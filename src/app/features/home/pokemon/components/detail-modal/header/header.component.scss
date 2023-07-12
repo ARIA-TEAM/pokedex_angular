@@ -11,6 +11,16 @@
     background-size: 36.875rem 13.75rem;
     background-repeat: no-repeat;
     background-position: center;
+
+    &--img {
+      width: 100%;
+      text-align: center;
+
+      img {
+        height: 11.875rem;
+        width: 11.875rem;
+      }
+    }
   }
 }
 

@@ -1,10 +1,18 @@
 <div class="detail-modal__content">
-  <p><span>Name:</span> {{ name }}</p>
+  <p>
+    <span class="detail-modal__content--key">Name: </span> <span class="detail-modal__content--value">{{ name }}</span>
+  </p>
   <div class="divider"></div>
-  <p><span>Weight:</span> {{ weight }}</p>
+  <p>
+    <span class="detail-modal__content--key">Weight: </span> <span class="detail-modal__content--value">{{ getWeight() }}</span>
+  </p>
   <div class="divider"></div>
-  <p><span>Height:</span> {{ height }}</p>
+  <p>
+    <span class="detail-modal__content--key">Height: </span> <span class="detail-modal__content--value">{{ getHeight() }}</span>
+  </p>
   <div class="divider"></div>
-  <p><span>Types:</span> {{ getTypes() }}</p>
+  <p>
+    <span class="detail-modal__content--key">Types: </span> <span class="detail-modal__content--value">{{ getTypes() }}</span>
+  </p>
   <div class="divider"></div>
 </div>

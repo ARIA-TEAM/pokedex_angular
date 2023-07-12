@@ -5,10 +5,12 @@
     gap: 0.875rem;
     padding: 2rem;
 
-    p {
-      span {
-        font-weight: 600;
-      }
+    &--key {
+      font-weight: 600;
+    }
+
+    &--value {
+      text-transform: capitalize;
     }
   }
 }

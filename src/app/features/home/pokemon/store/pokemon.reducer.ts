@@ -1,5 +1,5 @@
-import { PokemonModel } from '@app/features/home/pokemon/models/pokemon.model'
-import { PokemonActions } from '@app/features/home/pokemon/store/pokemon.actions'
+import { PokemonModel } from '@pokemon/models/pokemon.model'
+import { PokemonActions } from '@pokemon/store/pokemon.actions'
 import { createReducer, createSelector, on } from '@ngrx/store'
 
 export const pokemonFeatureKey = 'pokemons'
@@ -35,13 +35,9 @@ export const pokemonReducer = createReducer(
       list: [...state.list, ...listWithFavouriteAttribute]
     }
   }),
-  on(PokemonActions.getDetailSuccess, (state: PokemonState, { detail }) => ({
-    ...state,
-    detail: { ...detail }
-  })),
   on(PokemonActions.markAsFavourite, (state: PokemonState, { pokemonToMarkAsFavourite }) => {
     const updatedPokemons = state.list.map((pokemon: PokemonModel) =>
-      pokemon.name === pokemonToMarkAsFavourite.name ? { ...pokemon, favourite: true } : pokemon
+      pokemon.name === pokemonToMarkAsFavourite.name.toLowerCase() ? { ...pokemon, favourite: true } : pokemon
     )
 
     const favouriteList = [...state.favouriteList]
@@ -67,7 +63,16 @@ export const pokemonReducer = createReducer(
       list: [...updatedPokemons],
       favouriteList
     }
-  })
+  }),
+  on(PokemonActions.getDetailSuccess, (state: PokemonState, { detail }) => {
+    const favouriteList = [...state.favouriteList]
+    const pokemonIndex = favouriteList.findIndex((pokemon: PokemonModel) => pokemon.name === detail.name)
+
+    return {
+      ...state,
+      detail: { ...detail, favourite: favouriteList[pokemonIndex] ? favouriteList[pokemonIndex].favourite : false}
+    }
+  }),
 )
 
 export const selectPokemonFeature = (state: any) => state[pokemonFeatureKey]

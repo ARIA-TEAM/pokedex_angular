@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing'
-import { ListItemComponent } from '@app/features/home/pokemon/components/list/list-item/list-item.component'
+import { ListItemComponent } from '@pokemon/components/list/list-item/list-item.component'
 
 describe('ListItemComponent', () => {
   let component: ListItemComponent

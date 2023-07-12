@@ -11,5 +11,5 @@
   (onShowAllEmitter)="onShowAll()"
   (onShowFavouritesEmitter)="onShowFavourites()"></app-filters>
 <app-modal id="detail">
-  <app-detail-modal></app-detail-modal>
+  <app-detail-modal (onUpdateFavouritesListEmitter)="onUpdateFavouritesList($event)"></app-detail-modal>
 </app-modal>

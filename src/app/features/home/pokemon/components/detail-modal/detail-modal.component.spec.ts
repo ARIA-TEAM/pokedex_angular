@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing'
-import { DetailModalComponent } from '@app/features/home/pokemon/components/detail-modal/detail-modal.component'
+import { DetailModalComponent } from '@pokemon/components/detail-modal/detail-modal.component'
 
 describe('DetailModalComponent', () => {
   let component: DetailModalComponent

@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing'
-import { ContentComponent } from '@app/features/home/pokemon/components/detail-modal/content/content.component'
+import { ContentComponent } from '@pokemon/components/detail-modal/content/content.component'
 
 describe('ContentComponent', () => {
   let component: ContentComponent

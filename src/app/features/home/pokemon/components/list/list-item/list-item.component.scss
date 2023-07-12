@@ -14,5 +14,7 @@ $default-radius: 0.3125rem;
 
   &--title {
     cursor: pointer;
+    width: -webkit-fill-available;
+    text-align: left;
   }
 }

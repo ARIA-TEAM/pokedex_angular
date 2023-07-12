@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core'
 import { FormControl } from '@angular/forms'
-import { PokemonModel } from '@app/features/home/pokemon/models/pokemon.model'
-import { PokemonActions } from '@app/features/home/pokemon/store/pokemon.actions'
+import { PokemonModel } from '@pokemon/models/pokemon.model'
+import { PokemonActions } from '@pokemon/store/pokemon.actions'
 import { Store } from '@ngrx/store'
 import { PokemonState, selectFavouritesList, selectList, selectSearchList } from '@pokemon/store/pokemon.reducer'
 import { Subject, takeUntil } from 'rxjs'
@@ -100,6 +100,7 @@ export class PokemonComponent implements OnInit, OnDestroy {
     this.filteredPokemonList = [...this.favouritePokemonList]
     this.showFavourites = true
   }
+
   public ngOnDestroy(): void {
     this._destroyed$.next(null)
     this._destroyed$.complete()

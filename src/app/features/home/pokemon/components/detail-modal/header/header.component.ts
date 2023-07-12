@@ -1,19 +1,23 @@
-import { Component } from '@angular/core'
-import { ModalService } from '@shared/services/modal.service'
-import { PokemonState } from '../../../store/pokemon.reducer'
-import { Store } from '@ngrx/store'
-import { PokemonActions } from '../../../store/pokemon.actions'
+import { Component, Input, OnDestroy } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { PokemonState } from '@pokemon/store/pokemon.reducer';
+import { ModalService } from '@shared/services/modal.service';
 
 @Component({
   selector: 'app-detail-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnDestroy {
+  @Input() frontDefault: string | undefined = undefined
+
   constructor(private modalService: ModalService, private store: Store<PokemonState>) {}
 
   public onClose(): void {
-    // this.store.dispatch(PokemonActions.getDetailSuccess({ detail: null }))
     this.modalService.close('detail')
+  }
+
+  public ngOnDestroy(): void {
+    this.frontDefault = undefined
   }
 }

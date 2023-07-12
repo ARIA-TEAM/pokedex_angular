@@ -1,3 +1,6 @@
 <div class="detail-modal__header">
+  <div class="detail-modal__header--img">
+    <img *ngIf="frontDefault" [src]="frontDefault" />
+  </div>
   <button class="btn-rounded btn-rounded--close" (click)="onClose()"></button>
 </div>
