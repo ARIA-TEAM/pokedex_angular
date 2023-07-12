@@ -8,8 +8,6 @@ import { PokemonModel } from '@pokemon/models/pokemon.model'
 })
 export class ListComponent {
   @Input() filteredPokemonList: PokemonModel[] = []
-  @Input() favouritePokemonList: PokemonModel[] = []
-  @Input() showFavourites = false
 
   @Output() onUpdateFavouritesListEmitter = new EventEmitter<PokemonModel>()
   @Output() onScrollEmitter = new EventEmitter()

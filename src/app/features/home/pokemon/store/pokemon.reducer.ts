@@ -41,7 +41,7 @@ export const pokemonReducer = createReducer(
     )
 
     const favouriteList = [...state.favouriteList]
-    const pokemonIndex = favouriteList.findIndex((pokemon: PokemonModel) => pokemon.name === pokemon.name)
+    const pokemonIndex = favouriteList.findIndex((pokemon: PokemonModel) => pokemon.name === pokemonToMarkAsFavourite.name)
 
     if (pokemonIndex === -1) favouriteList.push({ ...pokemonToMarkAsFavourite, favourite: true })
 

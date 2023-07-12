@@ -15,11 +15,11 @@ export class PokemonComponent implements OnInit, OnDestroy {
   private _destroyed$ = new Subject()
   private _searchList: PokemonModel[] = []
   private _list: PokemonModel[] = []
+  private _favouriteList: PokemonModel[] = []
 
-  public filteredPokemonList: PokemonModel[] = []
-  public favouritePokemonList: PokemonModel[] = []
-  public showFavourites = false
   public searchControl = new FormControl('')
+  public filteredPokemonList: PokemonModel[] = []
+  public showFavourites = false
 
   constructor(private store: Store<PokemonState>) {
     this.store.dispatch(PokemonActions.getAll())
@@ -52,7 +52,7 @@ export class PokemonComponent implements OnInit, OnDestroy {
         if (!list) return
 
         this._list = [...list]
-        this.filteredPokemonList = [...this._list]
+        if (!this.showFavourites) this.filteredPokemonList = [...this._list]
       })
   }
 
@@ -63,7 +63,8 @@ export class PokemonComponent implements OnInit, OnDestroy {
       .subscribe((list: PokemonModel[]) => {
         if (!list) return
 
-        this.favouritePokemonList = [...list]
+        this._favouriteList = [...list]
+        if (this.showFavourites) this.filteredPokemonList = [...this._favouriteList]
       })
   }
 
@@ -97,7 +98,7 @@ export class PokemonComponent implements OnInit, OnDestroy {
 
   public onShowFavourites(): void {
     this.filteredPokemonList = []
-    this.filteredPokemonList = [...this.favouritePokemonList]
+    this.filteredPokemonList = [...this._favouriteList]
     this.showFavourites = true
   }
 
