@@ -16,6 +16,19 @@ export class PokemonService {
   constructor(private httpClient: HttpClient) {}
 
   public getAll(): Observable<PokemonModel[]> {
+    return this.httpClient.get<PokemonListModel>(`${this._baseApiUrl}?limit=-1`).pipe(
+      map((response: PokemonListModel) => {
+        this._nextPage = response.next
+
+        return response.results
+      }),
+      catchError((error: any) => {
+        throw new Error(error)
+      })
+    )
+  }
+
+  public getPage(): Observable<PokemonModel[]> {
     return this.httpClient.get<PokemonListModel>(this._nextPage ? this._nextPage : this._baseApiUrl).pipe(
       map((response: PokemonListModel) => {
         this._nextPage = response.next

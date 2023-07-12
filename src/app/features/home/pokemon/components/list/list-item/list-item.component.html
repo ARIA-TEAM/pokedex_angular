@@ -5,5 +5,5 @@
   <button
     class="btn-rounded btn-rounded--star"
     [ngClass]="{ 'btn-rounded--favourite': pokemon?.favourite }"
-    (click)="onUpdateFavouritesList(pokemon?.name)"></button>
+    (click)="onUpdateFavouritesList(pokemon ? pokemon : undefined)"></button>
 </li>

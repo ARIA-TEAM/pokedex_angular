@@ -7,7 +7,7 @@ import { catchError, exhaustMap, map, of } from 'rxjs'
 
 @Injectable()
 export class PokemonEffects {
-  constructor(private actions$: Actions, private pokemonService: PokemonService) {}
+  constructor(private actions$: Actions, private pokemonService: PokemonService) { }
 
   getAll$ = createEffect(() =>
     this.actions$.pipe(
@@ -16,6 +16,18 @@ export class PokemonEffects {
         this.pokemonService.getAll().pipe(
           map((list: PokemonModel[]) => PokemonActions.getAllSuccess({ list })),
           catchError(() => of(PokemonActions.getAll))
+        )
+      )
+    )
+  )
+
+  getPage$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(PokemonActions.getPage),
+      exhaustMap(() =>
+        this.pokemonService.getPage().pipe(
+          map((list: PokemonModel[]) => PokemonActions.getPageSuccess({ list })),
+          catchError(() => of(PokemonActions.getPage))
         )
       )
     )

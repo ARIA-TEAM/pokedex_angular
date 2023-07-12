@@ -13,7 +13,7 @@ import { PokemonActions } from '../../../store/pokemon.actions'
 export class ListItemComponent {
   @Input() pokemon: PokemonModel | null = null
 
-  @Output() onUpdateFavouritesListEmitter = new EventEmitter<PokemonModel['name']>()
+  @Output() onUpdateFavouritesListEmitter = new EventEmitter<PokemonModel>()
 
   constructor(protected modalService: ModalService, private store: Store<PokemonState>) {}
 
@@ -24,9 +24,9 @@ export class ListItemComponent {
     this.modalService.open('detail')
   }
 
-  public onUpdateFavouritesList(pokemonName: PokemonModel['name'] | undefined): void {
-    if (!pokemonName) return
+  public onUpdateFavouritesList(pokemon: PokemonModel | undefined): void {
+    if (!pokemon) return
 
-    this.onUpdateFavouritesListEmitter.emit(pokemonName)
+    this.onUpdateFavouritesListEmitter.emit(pokemon)
   }
 }

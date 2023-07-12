@@ -7,16 +7,15 @@ import { PokemonModel } from '@app/features/home/pokemon/models/pokemon.model'
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent {
-  @Input() list: PokemonModel[] = []
   @Input() filteredPokemonList: PokemonModel[] = []
   @Input() favouritePokemonList: PokemonModel[] = []
   @Input() showFavourites = false
 
-  @Output() onUpdateFavouritesListEmitter = new EventEmitter<PokemonModel['name']>()
+  @Output() onUpdateFavouritesListEmitter = new EventEmitter<PokemonModel>()
   @Output() onScrollEmitter = new EventEmitter()
 
-  public onUpdateFavouritesList(pokemonName: PokemonModel['name']): void {
-    this.onUpdateFavouritesListEmitter.emit(pokemonName)
+  public onUpdateFavouritesList(pokemon: PokemonModel): void {
+    this.onUpdateFavouritesListEmitter.emit(pokemon)
   }
 
   public onScroll(): void {
