@@ -7,3 +7,16 @@
 .filter {
   width: 100%;
 }
+
+.list {
+  &__empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+
+    .btn {
+     width: fit-content;
+    }
+  }
+}

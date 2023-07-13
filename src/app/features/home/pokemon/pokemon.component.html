@@ -1,9 +1,17 @@
 <app-search class="search" [searchControl]="searchControl"></app-search>
 <app-list
+  *ngIf="filteredPokemonList.length > 0; else noItems"
   class="list"
   [filteredPokemonList]="filteredPokemonList"
   (onUpdateFavouritesListEmitter)="onUpdateFavouritesList($event)"
   (onScrollEmitter)="onScroll()"></app-list>
+<ng-template #noItems>
+  <div class="list__empty">
+    <h1>Uh-oh!</h1>
+    <p>You look lost on your journey</p>
+    <button class="btn btn--primary" routerLink="/">Go back to home</button>
+  </div>
+</ng-template>
 <app-filters
   class="filter"
   [showFavourites]="showFavourites"
