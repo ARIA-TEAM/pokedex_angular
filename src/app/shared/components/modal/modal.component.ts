@@ -23,9 +23,7 @@ export class ModalComponent {
     document.body.appendChild(this.element)
 
     this.element.addEventListener('click', (elementRef: any) => {
-      if (elementRef.target.className === 'app-modal') {
-        this.close()
-      }
+      if (elementRef.target.className === 'app-modal') this.close()
     })
   }
 

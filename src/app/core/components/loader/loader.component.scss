@@ -1,0 +1,19 @@
+.loader {
+  &__backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--pkdx-surface-bright-color);
+  }
+}
+
+body {
+  &.modal {
+    &--open {
+      overflow: hidden;
+    }
+  }
+}

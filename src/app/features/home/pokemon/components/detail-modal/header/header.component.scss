@@ -14,11 +14,18 @@
 
     &--img {
       width: 100%;
-      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
       img {
         height: 11.875rem;
         width: 11.875rem;
+
+        &.shake {
+          height: 7.5rem;
+          width: 7.5rem;
+        }
       }
     }
   }

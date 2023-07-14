@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core'
 import { PokemonModel } from '@pokemon/models/pokemon.model'
 import { Store } from '@ngrx/store'
-import { ModalService } from '@shared/services/modal.service'
+import { ModalService } from '@app/shared/services/modal.service'
 import { PokemonState } from '../../../store/pokemon.reducer'
 import { PokemonActions } from '../../../store/pokemon.actions'
 

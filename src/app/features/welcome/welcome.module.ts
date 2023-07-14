@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common'
 import { NgModule } from '@angular/core'
-import { SharedModule } from '@shared/shared.module'
+import { SharedModule } from '@app/shared/shared.module'
 import { WelcomeRoutingModule } from '@welcome/welcome-routing.module'
 import { WelcomeComponent } from '@welcome/welcome.component'
 

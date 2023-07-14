@@ -1,7 +1,8 @@
 import { Component, Input, OnDestroy } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { PokemonState } from '@pokemon/store/pokemon.reducer';
-import { ModalService } from '@shared/services/modal.service';
+import { ModalService } from '@app/shared/services/modal.service';
+import { NgOptimizedImage } from '@angular/common'
 
 @Component({
   selector: 'app-detail-header',

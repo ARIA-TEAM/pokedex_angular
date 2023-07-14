@@ -1,12 +1,11 @@
 import { isDevMode, NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
+import { AppRoutingModule } from '@app/app-routing.module'
+import { AppComponent } from '@app/app.component'
+import { CoreModule } from '@app/core/core.module'
 import { EffectsModule } from '@ngrx/effects'
 import { StoreModule } from '@ngrx/store'
 import { StoreDevtoolsModule } from '@ngrx/store-devtools'
-
-import { CoreModule } from '@core/core.module'
-import { AppRoutingModule } from '@app/app-routing.module'
-import { AppComponent } from '@app/app.component'
 
 @NgModule({
   declarations: [AppComponent],
