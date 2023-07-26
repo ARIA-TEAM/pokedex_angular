@@ -15,7 +15,7 @@ export class HeaderComponent implements OnDestroy {
   constructor(private modalService: ModalService, private store: Store<PokemonState>) {}
 
   public onClose(): void {
-    this.modalService.close('detail')
+    this.modalService.close('pokemon-detail')
   }
 
   public ngOnDestroy(): void {

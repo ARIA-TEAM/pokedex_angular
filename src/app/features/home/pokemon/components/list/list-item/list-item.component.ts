@@ -21,7 +21,7 @@ export class ListItemComponent {
     if (!pokemonName) return
 
     this.store.dispatch(PokemonActions.getDetail({ pokemonName }))
-    this.modalService.open('detail')
+    this.modalService.open('pokemon-detail')
   }
 
   public onUpdateFavouritesList(pokemon: PokemonModel | undefined): void {
